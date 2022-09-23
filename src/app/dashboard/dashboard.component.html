@@ -1,0 +1,32 @@
+
+<div class="grid-container">
+  <h1 class="mat-h1"></h1>
+  <mat-grid-list cols="6" rowHeight="610px">
+    <mat-grid-tile *ngFor="let imovel of imoveis" [colspan]="1" [rowspan]="1"> <!--| async-->
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{imovel.nome}}
+          
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <mat-list>
+            <mat-list-item> <strong>Valor: </strong> <span>{{ imovel.valor | currency}}</span> </mat-list-item>          
+            <mat-list-item> <strong>Proprietário: </strong> <span> {{ getProprietarioId(imovel.id) | async }} </span>  </mat-list-item>
+            <mat-list-item> <strong>Tipo: </strong> <span>{{ imovel.tipo }}</span>  </mat-list-item>
+            <mat-list-item> <strong>Condomínio:</strong> <span>{{ imovel.condominio | currency}}</span>  </mat-list-item>
+            <mat-list-item> <strong>Quartos: </strong> <span>{{ imovel.quartos }}</span>  </mat-list-item>
+            <mat-list-item> <strong>Banheiro: </strong> <span>{{ imovel.banheiros }}</span>  </mat-list-item>
+            <mat-list-item> <strong>Mobiliado: </strong> <span>{{ imovel.mobiliado ? 'Sim' : 'Não' }}</span>  </mat-list-item>
+            <mat-list-item> <strong>Área: </strong> <span>{{ imovel.area }} M</span> </mat-list-item>
+            <mat-list-item> <strong>Aluguel: </strong> <span>{{ imovel.aluguel ? 'Sim' : 'Não' }}</span>  </mat-list-item>
+            <mat-list-item> <strong>Endereço: </strong> <span>{{ imovel.endereco[0].rua}}, {{imovel.endereco[0].numero}}, {{imovel.endereco[0].bairro}}, {{imovel.endereco[0].cidade}}, {{imovel.endereco[0].uf}}, cep: {{imovel.endereco[0].cep }}</span> </mat-list-item>
+            <mat-list-item> <strong>Data anúncio: </strong> <span>{{ imovel.dataAnuncio | date }}</span>  </mat-list-item>
+          </mat-list>
+          
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
