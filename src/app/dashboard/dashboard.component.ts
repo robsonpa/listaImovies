@@ -35,20 +35,12 @@ export class DashboardComponent implements OnInit{
 
     getProprietarioId(imovelId: number){
 
-       this.proprietarioService.getProprietario(imovelId)
-        /*.pipe(
-          map((data: Proprietario[]) => {
-            console.log('aqui');
-            return data;
-            
-          })
-       )*/
-       .subscribe((data:any) => {
+       /*this.proprietarioService.getProprietario(imovelId)
+        .subscribe((data:any) => {
         console.log(data);
         //this.proprietario= data.data;
-      });       
+      }); */      
        // .pipe(map(p => this.proprietario = p.p));
-        //.subscribe(proprietario => this.proprietario = proprietario);
       return this.proprietario;
     }
 

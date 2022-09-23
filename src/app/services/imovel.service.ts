@@ -24,4 +24,5 @@ export class ImovelService {
   getImoveis(): Observable<Imovel[]>{
     return this.http.get<Imovel[]>(this.imoveisUrl)
   }
+  
 }
